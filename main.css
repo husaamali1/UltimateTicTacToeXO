@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+
+.grid-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-grid {
+  width: 600px;
+}
+
+.main-grid div {
+  border: 1px solid yellow;
+  display: inline-block;
+  aspect-ratio: 1;
+}
+
+.sub-cell {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+  width: 33.3%;
+}
+
+.sub-cell div {
+  border: 1px solid green;
+  aspect-ratio: 1;
+  display: inline-block;
+}
+
+.sub-cell div.X {
+  background-image: url('X image(1).png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sub-cell div.O {
+  background-image: url('O image(2).png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
