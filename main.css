@@ -35,14 +35,17 @@ body {
   display: inline-block;
 }
 
-.sub-cell div.X {
-  background-image: url('X image(1).png');
+/* making my X appear on my grid */
+.X {
+  background-image: url('x.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 90%;
+  background-position: center;
 }
-
-.sub-cell div.O {
-  background-image: url('O image(2).png');
+/* making my O appear on my grid */
+.O {
+  background-image: url('o.png');
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 90%;
+  background-position: center;
 }

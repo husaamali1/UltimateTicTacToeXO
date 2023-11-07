@@ -1,7 +1,7 @@
 // Elements---------------------------
 
 // Create a 9x9 grid (gridContainer) as an array of cells
-const subCell = document.querySelector('subCell')
+const subCell = document.querySelector('.subCell')
 const mainGrid = document.querySelector('.main-grid')
 const cells = []
 
@@ -9,11 +9,11 @@ const cells = []
 
 //  Variables--------------------------
 
-// Create a function (createGrid) to display the Grid-
-// create 
-// Create a variable (currentPlayer) to track the current player (e.g., 'X' or 'O')
+// Create a function (createGrid) to display the Grid-✅
+// Make start Game button have a start/reset on click
+// Create a variable (currentPlayer) to track the current player (e.g., 'X' or 'O')-✅
 // Create a function (checkWinInsubCell) to check for wins in smaller 3 by 3 grids
-// Create a function (displayWinnerSymbol) to display the winning symbol on the grid
+// Create a function (displayWinnerSymbol) to display the winning symbol on the grid 9 by 9
 // Create a function (cellClick) this for when i click an empty cell to place a players turn
 
 
@@ -25,7 +25,7 @@ const width = 3 // this is both the width and height of our board
 const cellCount = width * width // this variable represents the number of cells in our grid
 
 // This function will create all of the grid cells and append them to the existing grid
-function createGrid(){
+function createGrid() {
   for (let i = 0; i < cellCount; i++) {
     const cell = document.createElement('div')
 
@@ -42,12 +42,38 @@ function createGrid(){
       cell.append(subCell)
     }
   }
-
 }
+createGrid()
 
+// On click cells display X & O
+// Check if the cell is empty before allowing a player to make a move
+// function addX(){
+//   subCell[subCell.X].classList.add('X')
+// }
+// Select all sub-cells by class name 'sub-cell'
+const subCells = document.querySelectorAll('.sub-cell')
+let currentPlayer = 'X'
+// Function to add 'X' class to a sub-cell when it's clicked
+function clickCell(evt) {
+  const subCell = evt.target
 
-
-  
+  // Check if the sub-cell is empty before allowing a player to make a move
+  if (!subCell.classList.contains('X') && !subCell.classList.contains('O')) {
+    if (currentPlayer === 'X') {
+      subCell.classList.add('X') // Add 'X' class to the sub-cell
+      currentPlayer = 'O'  // switch to the next player
+    } else {
+      subCell.classList.add('O')
+      currentPlayer = 'X'  // switch to the next player
+      // console.log(subCell.parentNode.children)
+    }
+  }
+}
+// Add click event listeners to all sub-cells for player interaction
+for (const cell of subCells) {
+  cell.addEventListener('click', clickCell)
+}
+clickCell()
 
 
 //  Executions-------------------------
@@ -95,5 +121,3 @@ function createGrid(){
 // Implement the visual interation:
 // Define the HTML structure and apply CSS styles to present the game board and results visually via Javascript.
 // Result element: An HTML element to display the game result (win, draw).
-
-createGrid()
